@@ -57,15 +57,14 @@ function templateCreateField(i) {
 }
 
 function saveFavoritePokemon(i) {
-    let currentFavoritePokemonName = document.getElementById(`pokemon-name-${i}`);
-    let currentFavoritePokemonID = document.getElementById(`pokemon-id-${i}`);
-    let currentFavoritePokemonAttribute = document.getElementById(`pokemon-attribut-${i}`);
-    let currentFavoritePokemonImg = document.getElementById(`pokemon-img-${i}`);
+   
+    let currentFavoritePokemonID = document.getElementById(`allPokemon[i]['id']`);
     changeHeart(i);
-    currentFavoritePokemonName.push(favoritePokemons[i]);
-    currentFavoritePokemonID.push(favoritePokemons[i]);
-    currentFavoritePokemonAttribute.push(favoritePokemons[i]);
-    currentFavoritePokemonImg.push(favoritePokemons[i]);
+    if(allPokemon == ''){
+        currentFavoritePokemonID.push(favoritePokemons);
+    } 
+    
+
     //POKEMON.push(favoritePokemons[i]);
     //save
 }
