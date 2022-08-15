@@ -1,11 +1,6 @@
 const url = 'https://pokeapi.co/api/v2/pokemon/';
 let allPokemon = [];
-let favoritePokemons = [
-    {
-
-}
-];
-
+let favoritePokemons = [];
 async function loadPokemon() {
     document.getElementById('card-box').innerHTML += '';
 
@@ -58,7 +53,7 @@ function templateCreateField(i) {
 
 function saveFavoritePokemon(i) {
    
-    let currentFavoritePokemonID = document.getElementById(`allPokemon[i]['id']`);
+    let currentFavoritePokemonID = document.getElementById(`pokemon-id-${i}`);
     changeHeart(i);
     if(allPokemon == ''){
         currentFavoritePokemonID.push(favoritePokemons);
