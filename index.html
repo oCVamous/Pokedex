@@ -17,20 +17,25 @@
 <body onload="loadPokemon()">
     
     <div id="navbar">
-        <img src="img/Pokedex.png" alt="" style="height:50px" onclick="history.go(0)">
+        <a href="index.html"> <img src="img/Pokedex.png" alt="" style="height:50px" onclick="history.go(0)"> </a>
+        
         <div id="search">
             <img id="searchField" src="img/search-3-128.ico" alt="" onclick="openSearchField()" >
             <input onkeyup="searchPokemon()" id="searchInputField"type="text" placeholder="search" class="d-none">
         </div>
+
+        <a href="favorites.html">  <img id="myfavoritePokemons" onclick="renderFavoritePokemon()" src="img/heart-69-128.ico" alt=""> </a>
         
-        <img id="myfavoritePokemons" onclick="renderFavoritePokemon()" src="img/heart-69-128.ico" alt="">
     </div>
 
     <div class="credit-box">
         <div class="credits">
             Pokédex 2022 |Created by Patrick Sterz | API: https://pokeapi.co/
-    
         </div>
+    </div>
+
+    <div class="front">
+        <h1>All Pokemons from the Kanto region</h1>
     </div>
     
     <div id="card-box"></div>
