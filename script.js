@@ -37,7 +37,6 @@ function loadFavoritePokemon() {
         setBackground(favoritePokemonsIndex[i]);
     }
 
-    console.log('Loaded pokemon', favoritePokemons);
 }
 
 function renderPokemonInfo(i) {
@@ -263,6 +262,19 @@ function searchPokemon() {
 
     for (let i = 0; i < allPokemon.length; i++) {
         if (allPokemon[i]['name'].toLowerCase().includes(search)) {
+            renderPokemonInfo(i);
+            setBackground(i);
+        }
+    }
+}
+
+function searchFavoritePokemon() {
+    let search = document.getElementById('searchInputField').value;
+    search = search.toLowerCase();
+    document.getElementById('card-box').innerHTML = "";
+
+    for (let i = 0; i < favoritePokemonsIndex.length; i++) {
+        if (favoritePokemonsIndex[i].toLowerCase().includes(search)) {
             renderPokemonInfo(i);
             setBackground(i);
         }
