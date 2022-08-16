@@ -53,7 +53,7 @@ function renderPokemonInfo(i) {
 //onclick="renderBigPokemonCard(${i})"
 function templateCreateField(i) {
     return /*html*/`
-    <div id="pokedex-${i}" class="pokedex bg-${allPokemon[i]['types'][0]['type']['name']}"> 
+    <div id="pokedex-${i}" onclick="renderBigPokemonCard(${i})" class="pokedex bg-${allPokemon[i]['types'][0]['type']['name']}">
         <div id="one">
             <h2 id="pokemon-name-${i}" class="pokemon-name"></h2>
             <h2 id="pokemon-id-${i}" class="pokemon-id">#</h2>
@@ -83,6 +83,33 @@ function saveFavoritePokemon(i) {
 
 function changeHeart(i) {
     document.getElementById(`like-img-${i}`).src = 'img/heart-69-128.ico';
+}
+
+function searchPokemon() {
+    let search = document.getElementById('searchInputField').value;
+    search = search.toLowerCase();
+    document.getElementById('card-box').innerHTML = "";
+
+    for (let i = 0; i < allPokemon.length; i++) {
+        if (allPokemon[i]['name'].toLowerCase().includes(search)) {
+            renderPokemonInfo(i);
+            setBackground(i);
+        }
+    }
+}
+
+function searchFavoritePokemon() {
+    let search = document.getElementById('searchInputField').value;
+    search = search.toLowerCase();
+    document.getElementById('card-box').innerHTML = "";
+
+    for (let i = 0; i < favoritePokemonsIndex.length; i++) {
+        favoritePokemonsIndex[i] = allPokemon[i]['name'];
+        if (favoritePokemonsIndex[i].toLowerCase().includes(search)) {
+            renderPokemonInfo(i);
+            setBackground(i);
+        }
+    }
 }
 
 function templateFieldAttribute(i, j) {
@@ -129,10 +156,6 @@ function templateCreateBigCard(i) {
         <div class="bigCard-typ">
             <p>Type-1</p>
             <p>Type-2</p>
-        </div>
-
-        <div class="bigCard-pokeImg">
-            <img id="pokemon-img-${i}" class="pokemon-img">
         </div>
 
         <div class="bigCard-pokeImg">
@@ -252,31 +275,5 @@ function setBackground(i) {
 
     if (allPokemon[i]['types']['0']['type']['name'] == 'ice') {
         document.getElementById(`pokedex-${i}`).style.backgroundColor = "rgb(200,233,233)";
-    }
-}
-
-function searchPokemon() {
-    let search = document.getElementById('searchInputField').value;
-    search = search.toLowerCase();
-    document.getElementById('card-box').innerHTML = "";
-
-    for (let i = 0; i < allPokemon.length; i++) {
-        if (allPokemon[i]['name'].toLowerCase().includes(search)) {
-            renderPokemonInfo(i);
-            setBackground(i);
-        }
-    }
-}
-
-function searchFavoritePokemon() {
-    let search = document.getElementById('searchInputField').value;
-    search = search.toLowerCase();
-    document.getElementById('card-box').innerHTML = "";
-
-    for (let i = 0; i < favoritePokemonsIndex.length; i++) {
-        if (favoritePokemonsIndex[i].toLowerCase().includes(search)) {
-            renderPokemonInfo(i);
-            setBackground(i);
-        }
     }
 }
