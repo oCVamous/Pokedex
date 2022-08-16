@@ -28,6 +28,11 @@ body {
     cursor: pointer;
 }
 
+.front {
+    text-align: center;
+    color: white;
+}
+
 .d-none {
     display: none;
 }
