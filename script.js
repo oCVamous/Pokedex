@@ -1,10 +1,18 @@
 const url = 'https://pokeapi.co/api/v2/pokemon/';
 let allPokemon = [];
-let favoritePokemons = [];
+let favoritePokemonsIndex = [];
+
+
+//sessionStorage.setItem("allPokemon",JSON.stringify(allPokemon));
+// allPokemon = JSON.parse(sessionStorage.getItem("allPokemon"));
+// sessionStorage.setItem("favoritePokemonsIndex",JSON.stringify(favoritePokemonsIndex));
+//favoritePokemonsIndex = JSON.parse(sessionStorage.getItem("favoritePokemonsIndex"));
+
+
 async function loadPokemon() {
     document.getElementById('card-box').innerHTML += '';
 
-    for (let i = 0; i < 151; i++) {
+    for (let i = 0; i < 20; i++) {
         const pokemon_url = url + (i + 1);
         let response = await fetch(pokemon_url);
         let currentPokemon = await response.json();
@@ -12,12 +20,24 @@ async function loadPokemon() {
         renderPokemonInfo(i);
         setBackground(i);
     }
-
+    sessionStorage.setItem('allPokemon',JSON.stringify(allPokemon));
     console.log('Loaded pokemon', allPokemon);
 }
 
-function renderFavoritePokemon() { 
+function loadFavoritePokemon() {
+    
+    allPokemon = JSON.parse(sessionStorage.getItem('allPokemon'));
+    favoritePokemonsIndex = JSON.parse(sessionStorage.getItem('favoritePokemonsIndex'))
     document.getElementById('card-box').innerHTML += '';
+
+    for (let i = 0; i < favoritePokemonsIndex.length; i++) {
+        
+        renderPokemonInfo(favoritePokemonsIndex[i]);
+        changeHeart(favoritePokemonsIndex[i]);
+        setBackground(favoritePokemonsIndex[i]);
+    }
+
+    console.log('Loaded pokemon', favoritePokemons);
 }
 
 function renderPokemonInfo(i) {
@@ -52,12 +72,10 @@ function templateCreateField(i) {
 }
 
 function saveFavoritePokemon(i) {
-   
-    let currentFavoritePokemonID = document.getElementById(`pokemon-id-${i}`);
+     
     changeHeart(i);
-    if(allPokemon == ''){
-        currentFavoritePokemonID.push(favoritePokemons);
-    } 
+    favoritePokemonsIndex.push(i);
+    sessionStorage.setItem('favoritePokemonsIndex',JSON.stringify(favoritePokemonsIndex));
     
 
     //POKEMON.push(favoritePokemons[i]);
