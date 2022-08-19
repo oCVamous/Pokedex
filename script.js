@@ -99,18 +99,18 @@ function searchPokemon() {
     }
 }
 
-function searchFavoritePokemon() {
-    let search = document.getElementById('searchInputField').value;
-    search = search.toLowerCase();
-    document.getElementById('card-box').innerHTML = "";
+function searchFavoritePokemon(){
+  let search = document.getElementById('searchInputField').value;
+  search=search.toLowerCase();
+  document.getElementById('card-box').innerHTML = "";
 
-    for (let i = 0; i < favoritePokemonsIndex.length; i++) {
-        favoritePokemonsIndex[i] = allPokemon[i]['name'];
-        if (favoritePokemonsIndex[i].toLowerCase().includes(search)) {
-            renderPokemonInfo(i);
-            setBackground(i);
-        }
+  for(let i=0;i<favoritePokemonsIndex.length;i++){
+    if (allPokemon[favoritePokemonsIndex[i]]['name'].toLowerCase().includes(search)) {
+        renderPokemonInfo(favoritePokemonsIndex[i]);
+        changeHeart(favoritePokemonsIndex[i]);
+        setBackground(favoritePokemonsIndex[i]);
     }
+  }
 }
 
 function templateFieldAttribute(i, j) {
