@@ -51,9 +51,11 @@ function renderPokemonInfo(i) {
 }
 
 //onclick="renderBigPokemonCard(${i})"
+
+//onclick="renderBigPokemonCard(${i})"
 function templateCreateField(i) {
     return /*html*/`
-    <div id="pokedex-${i}" onclick="renderBigPokemonCard(${i})" class="pokedex bg-${allPokemon[i]['types'][0]['type']['name']}">
+    <div id="pokedex-${i}"  class="pokedex bg-${allPokemon[i]['types'][0]['type']['name']}">
         <div id="one">
             <h2 id="pokemon-name-${i}" class="pokemon-name"></h2>
             <h2 id="pokemon-id-${i}" class="pokemon-id">#</h2>
@@ -76,7 +78,6 @@ function saveFavoritePokemon(i) {
     favoritePokemonsIndex.push(i);
     sessionStorage.setItem('favoritePokemonsIndex',JSON.stringify(favoritePokemonsIndex));
     
-
     //POKEMON.push(favoritePokemons[i]);
     //save
 }
