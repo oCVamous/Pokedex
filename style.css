@@ -139,3 +139,22 @@ body {
   z-index: 1002;
   overflow: auto;
 }
+
+.credits {
+    font-size: 15px;
+    padding: 4px;
+    border-radius: 4px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.credit-box {
+    justify-content: center;
+    display: flex;
+    padding-bottom: 30px;
+} 
+
+.front {
+    text-align: center;
+    color: black;
+}
