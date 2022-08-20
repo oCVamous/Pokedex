@@ -9,23 +9,28 @@
     <script src="script.js"></script>
     <script src="templates.js"></script>
     <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- fontawesome -->
+    <script defer src="https://use.fontawesome.com/releases/v6.1.2/js/all.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+
 </head>
 <body onload="loadPokemon()">
-    
+
     <div id="navbar">
-        <a href="index.html"> <img src="img/Pokedex.png" alt="" style="height:50px" onclick="history.go(0)"> </a>
-        
+        <a href="index.html"><img src="img/Pokedex.png" alt="" style="height:50px" onclick="history.go(0)"></a>
         <div id="search">
             <img id="searchField" src="img/search-3-128.ico" alt="" onclick="openSearchField()" >
-            <input onkeyup="searchPokemon()" id="searchInputField"type="text" placeholder="search" class="d-none">
+            <input onkeyup="searchPokemon()" id="searchInputField" type="text" placeholder="search" class="d-none">
         </div>
 
-        <a href="favorites.html">  <img id="myfavoritePokemons" onclick="renderFavoritePokemon()" src="img/heart-69-128.ico" alt=""> </a>
-        
+
+        <a href="favorites.html"><img id="myfavoritePokemons"  src="img/heart-69-128.ico" alt=""></a>
     </div>
 
     <div class="credit-box">
@@ -33,14 +38,17 @@
             Pokédex 2022 |Created by Patrick Sterz | API: https://pokeapi.co/
         </div>
     </div>
-
+    
     <div class="front">
         <h1>All Pokemons from the Kanto region</h1>
     </div>
-    
+
     <div id="card-box"></div>
-    <div id="bigCardContainer" class="d-none"></div>
-    
-    
+    <div id="bigCardContainer" ><i onclick="getBack();" class="fa-solid fa-xmark"></i></div>
+    <div id="black_overlay"></div>
+
+
+
+
 </body>
 </html>
